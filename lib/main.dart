@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Site Audit Apliction',
+      title: 'Site Audit Application',
       debugShowCheckedModeBanner: false,
       theme: TAppTheme.lightTheme,
       themeMode: ThemeMode.system,
