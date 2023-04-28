@@ -18,6 +18,7 @@ class _StartNewInspectionState extends State<StartNewInspection> {
   final formKey = GlobalKey<FormState>();
   final RegExp emailRegex = RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$');
   final _nameRegex = RegExp(r'^[a-z A-Z]+$');
+  final _houseRegex = RegExp(r'^[a-zA-Z0-9!@#\$&*~/]*$');
   String _name = '';
   final RegExp postalCodeRegex = RegExp(r'^\d{5}$');
 
@@ -231,7 +232,7 @@ class _StartNewInspectionState extends State<StartNewInspection> {
                     TextFormField(
                       controller: houseNumberController,
                       validator: (value) {
-                        if (value!.isEmpty || !_nameRegex.hasMatch(value)) {
+                        if (value!.isEmpty || !_houseRegex.hasMatch(value)) {
                           return "Please enter a house number";
                         } else {
                           return null;

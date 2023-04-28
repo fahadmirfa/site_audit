@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:site_audit/Screens/list_inspect_elements/bathrooms.dart';
 import 'package:site_audit/Screens/login.dart';
+import 'package:site_audit/Screens/start_new_inspection.dart';
 import '../constants/colors.dart';
 import '../widgets/button/txtbtn.dart';
 
@@ -36,7 +38,7 @@ class StartScreen extends StatelessWidget {
                 txtbtnradius: 18,
                 txtbtn_onpressed: () {
                   Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => LoginScreen()));
+                      MaterialPageRoute(builder: (context) => StartNewInspection()));
                 }),
           ],
         ),

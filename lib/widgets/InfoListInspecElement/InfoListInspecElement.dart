@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:flutter_swipe_button/flutter_swipe_button.dart';
 import '../../constants/colors.dart';
 
 class InfoListInspecElement extends StatefulWidget {
@@ -34,63 +35,87 @@ class _InfoListInspecElementState extends State<InfoListInspecElement> {
               widget.infoInspecElementText,
               style: Theme.of(context).textTheme.headline4,
             ),
+
           ),
-          Container(
+          //c1
+          // Container(
+          //   height: 56,
+          //   color: tInspecItemListYesLight,
+          //   child: Padding(
+          //     padding: const EdgeInsets.only(
+          //         top: 8.0, bottom: 8.0, left: 24.0, right: 24.0),
+          //     child: Row(
+          //       mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          //       children: [
+          //         Text(
+          //           "Yes",
+          //           style: Theme.of(context).textTheme.headline4?.copyWith(
+          //               color: tDarkGrey, fontWeight: FontWeight.w400),
+          //         ),
+          //         GestureDetector(
+          //           onTap: widget.infoInspecElementNoOnPressed,
+          //           child: SvgPicture.asset(
+          //             "assets/arrowforward.svg",
+          //             height: 16,
+          //             width: 16,
+          //             fit: BoxFit.scaleDown,
+          //           ),
+          //         ),
+          //       ],
+          //     ),
+          //   ),
+          // ),
+          //c1.
+          SwipeButton.expand(
+            borderRadius: BorderRadius.circular(10),
+            activeTrackColor: tInspecItemListYesLight,
+             activeThumbColor: tInspecItemListYesLight2,
+
             height: 56,
-            color: tInspecItemListYesLight,
-            child: Padding(
-              padding: const EdgeInsets.only(
-                  top: 8.0, bottom: 8.0, left: 24.0, right: 24.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    "Yes",
-                    style: Theme.of(context).textTheme.headline4?.copyWith(
-                        color: tDarkGrey, fontWeight: FontWeight.w400),
-                  ),
-                  GestureDetector(
-                    onTap: widget.infoInspecElementNoOnPressed,
-                    child: SvgPicture.asset(
-                      "assets/arrowforward.svg",
-                      height: 16,
-                      width: 16,
-                      fit: BoxFit.scaleDown,
-                    ),
-                  ),
-                ],
-              ),
+            child: Text(
+              "Yes",
+              style: Theme.of(context).textTheme.headline4?.copyWith(
+                  color: tDarkGrey, fontWeight: FontWeight.w400),
             ),
+            onSwipe: () {
+              ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(
+                  content: Center(
+                    child: Text("Yes",style: Theme.of(context).textTheme.headline4?.copyWith(
+                        color:  tWhiteColor, fontWeight: FontWeight.w400
+                    ),),
+                  ),
+                  backgroundColor: tInspecItemListYesLight2,
+                ),
+              );
+            },
           ),
           SizedBox(
             height: 8,
           ),
-          Container(
+          SwipeButton.expand(
+            borderRadius: BorderRadius.circular(10),
+            activeTrackColor: tInspecItDemListNoLight,
+            activeThumbColor: tInspecItDemListNoLight2,
+
             height: 56,
-            color: tInspecItemListNoLight,
-            child: Padding(
-              padding: const EdgeInsets.only(
-                  top: 8.0, bottom: 8.0, left: 24.0, right: 24.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  GestureDetector(
-                    onTap: widget.infoInspecElementNoOnPressed,
-                    child: SvgPicture.asset(
-                      "assets/arrowback.svg",
-                      height: 16,
-                      width: 16,
-                      fit: BoxFit.scaleDown,
-                    ),
-                  ),
-                  Text(
-                    "No",
-                    style: Theme.of(context).textTheme.headline4?.copyWith(
-                        color: tDarkGrey, fontWeight: FontWeight.w400),
-                  ),
-                ],
-              ),
+            child: Text(
+              "NO",
+              style: Theme.of(context).textTheme.headline4?.copyWith(
+                  color: tDarkGrey, fontWeight: FontWeight.w400),
             ),
+            onSwipe: () {
+              ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(
+                  content: Center(
+                    child: Text("No",style: Theme.of(context).textTheme.headline4?.copyWith(
+                      color:  tWhiteColor, fontWeight: FontWeight.w400
+                    ),),
+                  ),
+                  backgroundColor: tInspecItDemListNoLight2,
+                ),
+              );
+            },
           ),
           Padding(
             padding: const EdgeInsets.only(top: 8.0, left: 16.0, right: 16.0),
