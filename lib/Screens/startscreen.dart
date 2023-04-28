@@ -38,7 +38,7 @@ class StartScreen extends StatelessWidget {
                 txtbtnradius: 18,
                 txtbtn_onpressed: () {
                   Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => StartNewInspection()));
+                      MaterialPageRoute(builder: (context) => LoginScreen()));
                 }),
           ],
         ),
