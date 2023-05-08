@@ -16,36 +16,34 @@ class InspecElementContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 56,
-      width: MediaQuery.of(context).size.width,
-      decoration: BoxDecoration(
-        color: tGreenLight,
-      ),
-      child: Padding(
-        padding: const EdgeInsets.only(
-            top: 16.0, bottom: 16.0, left: 24.0, right: 24.0),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Text(
-              inspecelement_text,
-              style: Theme.of(context)
-                  .textTheme
-                  .headline4
-                  ?.copyWith(fontWeight: FontWeight.w500),
-            ),
-            GestureDetector(
-              onTap: inspecelement_onpressed,
-              child: SvgPicture.asset(
-                "assets/arrowforward.svg",
-                height: 12,
-                width: 12,
-                fit: BoxFit.scaleDown,
-              ),
-            ),
-          ],
-        ),
-      ),
-    );
+                width: double.infinity,
+                margin: EdgeInsets.fromLTRB(0, 15, 0, 5),
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                    color: tGreenLight),
+                child: Padding(
+                  padding: EdgeInsets.fromLTRB(10, 15, 5, 15),
+                  child: Row(children: [
+                    Padding(
+                      padding: EdgeInsets.fromLTRB(5, 0, 0, 0),
+                      child: Text(inspecelement_text,
+                          style:Theme.of(context)
+                              .textTheme
+                              .headline4
+                              ?.copyWith(fontWeight: FontWeight.w500)),
+                    ),
+                    Spacer(),
+                    Padding(
+                      padding: EdgeInsets.all(8),
+                      child: SvgPicture.asset(
+                        "assets/arrowforward.svg",
+                        height: 18,
+                        width: 18,
+                        fit: BoxFit.scaleDown,
+                      ),
+                    )
+                  ]),
+                ),
+              );
   }
 }

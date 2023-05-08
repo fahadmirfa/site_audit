@@ -27,9 +27,9 @@ class _TextFeildsState extends State<TextFeilds> {
       prefixIconColor: tDarkGrey,
       prefixIcon: widget.icon, labelStyle: TextStyle(color: tDarkGrey),
 
-      border: myinputborder(), //normal border
-      enabledBorder: myinputborder(), //enabled border
-      focusedBorder: myfocusborder(), //focused border
+      border: myInputBorder(), //normal border
+      enabledBorder: myInputBorder(), //enabled border
+      focusedBorder: myFocusBorder(), //focused border
       // set more border style like disabledBorder
     ));
   }

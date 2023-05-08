@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
@@ -17,7 +16,7 @@ class InspectionHomeCompleted extends StatelessWidget {
           backgroundColor: tDarkGrey,
           title: Text(
             "inspection Home",
-            style: Theme.of(context).textTheme.headline1,
+            style: Theme.of(context).textTheme.displayLarge,
           ),
           leading: IconButtons(
             icon: Icons.arrow_back,
@@ -44,14 +43,14 @@ class InspectionHomeCompleted extends StatelessWidget {
               children: [
                 Text(
                   "Inspection Information",
-                  style: Theme.of(context).textTheme.headline4,
+                  style: Theme.of(context).textTheme.headlineMedium,
                 ),
-                SizedBox(
+                const SizedBox(
                   height: tDefaultSize,
                 ),
                 Container(
                   padding:
-                      EdgeInsets.only(top: 16, right: 6, left: 10, bottom: 16),
+                      const EdgeInsets.only(top: 16, right: 6, left: 10, bottom: 16),
                   height: 276,
                   width: MediaQuery.of(context).size.width,
                   decoration: BoxDecoration(
@@ -78,7 +77,7 @@ class InspectionHomeCompleted extends StatelessWidget {
                                 width: 25,
                                 fit: BoxFit.scaleDown,
                               ),
-                              SizedBox(
+                              const SizedBox(
                                 width: 18,
                               ),
                               Column(
@@ -87,23 +86,23 @@ class InspectionHomeCompleted extends StatelessWidget {
                                   Text(
                                     "Project Name",
                                     style:
-                                        Theme.of(context).textTheme.bodyText2,
+                                        Theme.of(context).textTheme.bodyMedium,
                                   ),
                                   Text(
                                     "Home Inspection in Model Town",
                                     style:
-                                        Theme.of(context).textTheme.headline3,
+                                        Theme.of(context).textTheme.displaySmall,
                                   )
                                 ],
                               ),
-                              SizedBox(
+                              const SizedBox(
                                 width: 20,
                               ),
                             ],
                           ),
                         ),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: tDefaultSize - 23,
                       ),
                       Container(
@@ -124,7 +123,7 @@ class InspectionHomeCompleted extends StatelessWidget {
                                 width: 25,
                                 fit: BoxFit.scaleDown,
                               ),
-                              SizedBox(
+                              const SizedBox(
                                 width: 18,
                               ),
                               Column(
@@ -133,23 +132,23 @@ class InspectionHomeCompleted extends StatelessWidget {
                                   Text(
                                     "Client Name",
                                     style:
-                                        Theme.of(context).textTheme.bodyText2,
+                                        Theme.of(context).textTheme.bodyMedium,
                                   ),
                                   Text(
                                     "Mirza",
                                     style:
-                                        Theme.of(context).textTheme.headline3,
+                                        Theme.of(context).textTheme.displaySmall,
                                   )
                                 ],
                               ),
-                              SizedBox(
+                              const SizedBox(
                                 width: 20,
                               ),
                             ],
                           ),
                         ),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: tDefaultSize - 23,
                       ),
                       Container(
@@ -170,7 +169,7 @@ class InspectionHomeCompleted extends StatelessWidget {
                                 width: 25,
                                 fit: BoxFit.scaleDown,
                               ),
-                              SizedBox(
+                              const SizedBox(
                                 width: 18,
                               ),
                               Column(
@@ -179,23 +178,23 @@ class InspectionHomeCompleted extends StatelessWidget {
                                   Text(
                                     "Builder Name",
                                     style:
-                                        Theme.of(context).textTheme.bodyText2,
+                                        Theme.of(context).textTheme.bodyMedium,
                                   ),
                                   Text(
                                     "Sultan",
                                     style:
-                                        Theme.of(context).textTheme.headline3,
+                                        Theme.of(context).textTheme.displaySmall,
                                   )
                                 ],
                               ),
-                              SizedBox(
+                              const SizedBox(
                                 width: 20,
                               ),
                             ],
                           ),
                         ),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 16,
                       ),
                       SizedBox(
@@ -205,25 +204,25 @@ class InspectionHomeCompleted extends StatelessWidget {
                           onPressed: () {},
                           child: Text(
                             "Generate Report",
-                            style: Theme.of(context).textTheme.headline6,
+                            style: Theme.of(context).textTheme.titleLarge,
                           ),
                         ),
                       ),
                     ],
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 24.0,
                 ),
                 Text(
                   "Inspection Progress",
-                  style: Theme.of(context).textTheme.headline4,
+                  style: Theme.of(context).textTheme.headlineMedium,
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 16,
                 ),
                 Container(
-                  padding: EdgeInsets.only(left: 16, right: 16),
+                  padding: const EdgeInsets.only(left: 16, right: 16),
                   height: 160,
                   width: MediaQuery.of(context).size.width,
                   decoration: BoxDecoration(
@@ -231,7 +230,7 @@ class InspectionHomeCompleted extends StatelessWidget {
                     borderRadius: BorderRadius.circular(8.0),
                   ),
                   child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Padding(
                         padding: const EdgeInsets.only(top: 46.0),
@@ -240,35 +239,36 @@ class InspectionHomeCompleted extends StatelessWidget {
                           children: [
                             Text(
                               "Well Done!",
-                              style: Theme.of(context).textTheme.headline4,
+                              style: Theme.of(context).textTheme.headlineMedium,
                             ),
-                            SizedBox(
+                            const SizedBox(
                               height: 8.0,
                             ),
                             Text(
                               "You have completed\nyour inspection.",
                               style: Theme.of(context)
                                   .textTheme
-                                  .headline4
+                                  .headlineMedium
                                   ?.copyWith(color: tGreyColor),
                             )
                           ],
                         ),
                       ),
-                      SizedBox(
-                        width: 55,
-                      ),
-                      CircularPercentIndicator(
-                        radius: 60.0,
-                        lineWidth: 10,
-                        backgroundColor: Color(0xfff2f4f7),
-                        progressColor: tDarkGrey,
-                        percent: 1,
-                        center: Text(
-                          "100%",
-                          style: Theme.of(context).textTheme.headline2,
+
+                      Container(
+                        decoration: BoxDecoration(color:tWhiteColor, borderRadius: BorderRadius.circular(55)),
+                        child: CircularPercentIndicator(
+                          radius: 55.0,
+                          lineWidth: 10,
+                          backgroundColor: Colors.grey,
+                          progressColor: tDarkGrey,
+                          percent: 1,
+                          center: Text(
+                            "100%",
+                            style: Theme.of(context).textTheme.displayMedium,
+                          ),
+                          circularStrokeCap: CircularStrokeCap.round,
                         ),
-                        circularStrokeCap: CircularStrokeCap.round,
                       )
                     ],
                   ),

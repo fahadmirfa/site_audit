@@ -75,8 +75,8 @@ class _Password_TextFeild_LoginSignupState
                   )),
         labelStyle: TextStyle(color: tDarkGrey),
         hintStyle: TextStyle(color: tDarkGrey),
-        enabledBorder: myinputborder(),
-        focusedBorder: myfocusborder(),
+        enabledBorder: myInputBorder(),
+        focusedBorder: myFocusBorder(),
       ),
     );
   }

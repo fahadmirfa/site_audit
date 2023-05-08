@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:site_audit/Screens/login.dart';
 import '../constants/colors.dart';
@@ -15,8 +14,8 @@ class NewPassword extends StatefulWidget {
 class _NewPasswordState extends State<NewPassword> {
   final formKey = GlobalKey<FormState>();
 
-  TextEditingController newpasswordController = TextEditingController();
-  TextEditingController confirmpasswordController = TextEditingController();
+  TextEditingController newPasswordController = TextEditingController();
+  TextEditingController confirmPasswordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -32,42 +31,42 @@ class _NewPasswordState extends State<NewPassword> {
                 Container(
                   height: 30,
                 ),
-                Center(
+                const Center(
                     child: Image(
                   image: AssetImage("assets/login_signup.png"),
                 )),
-                SizedBox(
+                const SizedBox(
                   height: tDefaultSize,
                 ),
                 Text(
                   "Reset Password",
-                  style: Theme.of(context).textTheme.headline4,
+                  style: Theme.of(context).textTheme.headlineMedium,
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 10,
                 ),
                 Text(
                   "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
                   style: Theme.of(context)
                       .textTheme
-                      .headline4
+                      .headlineMedium
                       ?.copyWith(color: tGreyColor, fontSize: 12),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 48,
                 ),
                 Password_TextFeild_LoginSignup(
-                  controller: newpasswordController,
+                  controller: newPasswordController,
                   passwordloginsignuptext: "New Password",
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 24,
                 ),
                 Password_TextFeild_LoginSignup(
-                  controller: confirmpasswordController,
+                  controller: confirmPasswordController,
                   passwordloginsignuptext: "Confirm Password",
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 184,
                 ),
                 SizedBox(
@@ -79,38 +78,38 @@ class _NewPasswordState extends State<NewPassword> {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => LoginScreen()));
+                                builder: (context) => const LoginScreen()));
                       }
                     },
                     child: Text(
                       "Reset Password",
-                      style: Theme.of(context).textTheme.headline6,
+                      style: Theme.of(context).textTheme.titleLarge,
                     ),
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 10,
                 ),
                 GestureDetector(
                   onTap: () {
                     Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => LoginScreen()));
+                        MaterialPageRoute(builder: (context) => const LoginScreen()));
                   },
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
-                        "Alredy have an account?",
+                        "Already have an account?",
                         style: Theme.of(context)
                             .textTheme
-                            .bodyText1
+                            .bodyLarge
                             ?.copyWith(fontSize: 12, color: tDarkGrey),
                       ),
                       Text(
                         " Sign In",
                         style: Theme.of(context)
                             .textTheme
-                            .bodyText1
+                            .bodyLarge
                             ?.copyWith(fontSize: 12),
                       ),
                     ],

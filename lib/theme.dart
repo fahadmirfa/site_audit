@@ -7,6 +7,7 @@ class TAppTheme {
   static ThemeData lightTheme = ThemeData(
     backgroundColor: Colors.grey.shade200,
     brightness: Brightness.light,
+    fontFamily: 'Poppins',
     textTheme: TTextTheme.lightTextTheme,
     elevatedButtonTheme: TElevatedButtonTheme.lightElevatedButtonTheme,
   );

@@ -19,8 +19,7 @@ class LoginScreen extends StatefulWidget {
 
 class _LoginScreenState extends State<LoginScreen> {
   final formKey = GlobalKey<FormState>();
-  String _name = '';
-  final RegExp emailRegex = RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$');
+  final RegExp emailRegex = RegExp(r'^[\w-]+@([\w-]+\.)+[\w-]{2,4}$');
   TextEditingController loginpasswordController = TextEditingController();
   @override
   Widget build(BuildContext context) {
@@ -36,28 +35,28 @@ class _LoginScreenState extends State<LoginScreen> {
                 Container(
                   height: 30,
                 ),
-                Center(
+                const Center(
                     child: Image(
                   image: AssetImage("assets/login_signup.png"),
                 )),
-                SizedBox(
+                const SizedBox(
                   height: tDefaultSize,
                 ),
                 Text(
                   "Sign in",
-                  style: Theme.of(context).textTheme.headline4,
+                  style: Theme.of(context).textTheme.headlineMedium,
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 10,
                 ),
                 Text(
                   "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
                   style: Theme.of(context)
                       .textTheme
-                      .headline4
+                      .headlineMedium
                       ?.copyWith(color: tGreyColor, fontSize: 12),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 48,
                 ),
                 TextFormField(
@@ -67,18 +66,18 @@ class _LoginScreenState extends State<LoginScreen> {
                     } else if (!emailRegex.hasMatch(value)) {
                       return "Please enter a correct email";
                     }
+                    return null;
                   },
                   onSaved: (value) {
-                    _name = value!.trim();
                   },
                   decoration: InputDecoration(
                     fillColor: tGreenLight,
                     filled: true,
-                    focusedErrorBorder: UnderlineInputBorder(
+                    focusedErrorBorder: const UnderlineInputBorder(
                       borderSide: BorderSide.none,
                     ),
                     errorBorder:
-                        UnderlineInputBorder(borderSide: BorderSide.none),
+                        const UnderlineInputBorder(borderSide: BorderSide.none),
                     hintText: "Enter Your Email",
                     labelText: "Email",
                     prefixIcon: SvgPicture.asset(
@@ -87,15 +86,15 @@ class _LoginScreenState extends State<LoginScreen> {
                       width: 10,
                       fit: BoxFit.scaleDown,
                     ),
-                    errorStyle: TextStyle(height: 0, color: tDarkGrey),
+                    errorStyle: const TextStyle(height: 0, color: tDarkGrey),
                     prefixIconColor: tDarkGrey,
-                    labelStyle: TextStyle(color: tDarkGrey),
-                    hintStyle: TextStyle(color: tDarkGrey),
-                    enabledBorder: myinputborder(),
-                    focusedBorder: myfocusborder(),
+                    labelStyle: const TextStyle(color: tDarkGrey),
+                    hintStyle: const TextStyle(color: tDarkGrey),
+                    enabledBorder: myInputBorder(),
+                    focusedBorder: myFocusBorder(),
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 24,
                 ),
                 Password_TextFeild_LoginSignup(
@@ -110,17 +109,17 @@ class _LoginScreenState extends State<LoginScreen> {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => ForgetPasssword()));
+                                  builder: (context) => const ForgetPasssword()));
                         },
                         child: Text("Forget Password?",
                             style: Theme.of(context)
                                 .textTheme
-                                .bodyText1
+                                .bodyLarge
                                 ?.copyWith(
                                     color: tWatchTutorial, fontSize: 12))),
                   ],
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 24,
                 ),
                 SizedBox(
@@ -128,20 +127,20 @@ class _LoginScreenState extends State<LoginScreen> {
                   width: MediaQuery.of(context).size.width,
                   child: ElevatedButton(
                     onPressed: () {
-                      if (formKey.currentState!.validate()) {
+                      // if (formKey.currentState!.validate()) {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
                                 builder: (context) => MyHomePage()));
-                      }
+                      // }
                     },
                     child: Text(
                       "Sign In",
-                      style: Theme.of(context).textTheme.headline6,
+                      style: Theme.of(context).textTheme.titleLarge,
                     ),
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 10,
                 ),
                 GestureDetector(
@@ -149,7 +148,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => SignupScreen()));
+                            builder: (context) => const SignupScreen()));
                   },
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -158,14 +157,14 @@ class _LoginScreenState extends State<LoginScreen> {
                         "Don’t have an account?",
                         style: Theme.of(context)
                             .textTheme
-                            .bodyText1
+                            .bodyLarge
                             ?.copyWith(fontSize: 12, color: tDarkGrey),
                       ),
                       Text(
                         " Create one",
                         style: Theme.of(context)
                             .textTheme
-                            .bodyText1
+                            .bodyLarge
                             ?.copyWith(fontSize: 12),
                       ),
                     ],

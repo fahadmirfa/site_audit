@@ -60,7 +60,7 @@ class _ListInspectionElmentsBathroomState
                   SizedBox(
                     height: 16,
                   ),
-                  InfoListInspecDetails(infoListDetailsText: "Heting/Plumbing"),
+                  InfoListInspecDetails(infoListDetailsText: "Heating/Plumbing"),
                   SizedBox(
                     height: 16,
                   ),

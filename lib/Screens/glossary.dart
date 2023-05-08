@@ -12,7 +12,7 @@ class Glossary extends StatelessWidget {
         backgroundColor: tDarkGrey,
         title: Text(
           "Glossary",
-          style: Theme.of(context).textTheme.headline1,
+          style: Theme.of(context).textTheme.displayLarge,
         ),
         leading: IconButtons(
           icon: Icons.arrow_back,
@@ -35,7 +35,7 @@ class Glossary extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            SizedBox(
+            const SizedBox(
               height: 24,
             ),
             Container(
@@ -50,7 +50,7 @@ class Glossary extends StatelessWidget {
                   "A",
                   style: Theme.of(context)
                       .textTheme
-                      .headline2
+                      .displayMedium
                       ?.copyWith(fontSize: 24),
                 ),
               ),
@@ -64,43 +64,43 @@ class Glossary extends StatelessWidget {
                     "Apple",
                     style: Theme.of(context)
                         .textTheme
-                        .headline4
+                        .headlineMedium
                         ?.copyWith(fontSize: 18, fontWeight: FontWeight.w500),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 5,
                   ),
                   Text(
                     "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard",
                     maxLines: 3,
                     softWrap: true,
-                    style: Theme.of(context).textTheme.headline6?.copyWith(
+                    style: Theme.of(context).textTheme.titleLarge?.copyWith(
                         fontWeight: FontWeight.w400, color: tGreyColor),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 16,
                   ),
                   Text(
                     "Ant",
                     style: Theme.of(context)
                         .textTheme
-                        .headline4
+                        .headlineMedium
                         ?.copyWith(fontSize: 18, fontWeight: FontWeight.w500),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 5,
                   ),
                   Text(
                     "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard",
                     maxLines: 3,
                     softWrap: true,
-                    style: Theme.of(context).textTheme.headline6?.copyWith(
+                    style: Theme.of(context).textTheme.titleLarge?.copyWith(
                         fontWeight: FontWeight.w400, color: tGreyColor),
                   ),
                 ],
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 24,
             ),
             Container(
@@ -115,7 +115,7 @@ class Glossary extends StatelessWidget {
                   "B",
                   style: Theme.of(context)
                       .textTheme
-                      .headline2
+                      .displayMedium
                       ?.copyWith(fontSize: 24),
                 ),
               ),
@@ -129,43 +129,43 @@ class Glossary extends StatelessWidget {
                     "Banana",
                     style: Theme.of(context)
                         .textTheme
-                        .headline4
+                        .headlineMedium
                         ?.copyWith(fontSize: 18, fontWeight: FontWeight.w500),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 5,
                   ),
                   Text(
                     "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard",
                     maxLines: 3,
                     softWrap: true,
-                    style: Theme.of(context).textTheme.headline6?.copyWith(
+                    style: Theme.of(context).textTheme.titleLarge?.copyWith(
                         fontWeight: FontWeight.w400, color: tGreyColor),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 16,
                   ),
                   Text(
                     "Ball",
                     style: Theme.of(context)
                         .textTheme
-                        .headline4
+                        .headlineMedium
                         ?.copyWith(fontSize: 18, fontWeight: FontWeight.w500),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 5,
                   ),
                   Text(
                     "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard",
                     maxLines: 3,
                     softWrap: true,
-                    style: Theme.of(context).textTheme.headline6?.copyWith(
+                    style: Theme.of(context).textTheme.titleLarge?.copyWith(
                         fontWeight: FontWeight.w400, color: tGreyColor),
                   ),
                 ],
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 24,
             ),
             Container(
@@ -180,7 +180,7 @@ class Glossary extends StatelessWidget {
                   "C",
                   style: Theme.of(context)
                       .textTheme
-                      .headline2
+                      .displayMedium
                       ?.copyWith(fontSize: 24),
                 ),
               ),
@@ -194,43 +194,43 @@ class Glossary extends StatelessWidget {
                     "Carrot",
                     style: Theme.of(context)
                         .textTheme
-                        .headline4
+                        .headlineMedium
                         ?.copyWith(fontSize: 18, fontWeight: FontWeight.w500),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 5,
                   ),
                   Text(
                     "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard",
                     maxLines: 3,
                     softWrap: true,
-                    style: Theme.of(context).textTheme.headline6?.copyWith(
+                    style: Theme.of(context).textTheme.titleLarge?.copyWith(
                         fontWeight: FontWeight.w400, color: tGreyColor),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 16,
                   ),
                   Text(
                     "Cat",
                     style: Theme.of(context)
                         .textTheme
-                        .headline4
+                        .headlineMedium
                         ?.copyWith(fontSize: 18, fontWeight: FontWeight.w500),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 5,
                   ),
                   Text(
                     "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard",
                     maxLines: 3,
                     softWrap: true,
-                    style: Theme.of(context).textTheme.headline6?.copyWith(
+                    style: Theme.of(context).textTheme.titleLarge?.copyWith(
                         fontWeight: FontWeight.w400, color: tGreyColor),
                   ),
                 ],
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 24,
             ),
           ],

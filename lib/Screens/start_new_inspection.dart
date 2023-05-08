@@ -89,7 +89,7 @@ class _StartNewInspectionState extends State<StartNewInspection> {
                         fillColor: tGreenLight,
                         filled: true,
                         focusedErrorBorder: UnderlineInputBorder(
-                          borderSide: BorderSide.none,
+                            borderSide: BorderSide(color: Colors.black)
                         ),
                         errorBorder:
                             UnderlineInputBorder(borderSide: BorderSide.none),
@@ -105,8 +105,8 @@ class _StartNewInspectionState extends State<StartNewInspection> {
                         labelStyle: TextStyle(color: tDarkGrey),
                         errorStyle: TextStyle(height: 0, color: tDarkGrey),
                         hintStyle: TextStyle(color: tDarkGrey),
-                        enabledBorder: myinputborder(),
-                        focusedBorder: myfocusborder(),
+                        enabledBorder: myInputBorder(),
+                        focusedBorder: myFocusBorder(),
                       ),
                     ),
                     SizedBox(
@@ -144,8 +144,8 @@ class _StartNewInspectionState extends State<StartNewInspection> {
                         labelStyle: TextStyle(color: tDarkGrey),
                         hintStyle: TextStyle(color: tDarkGrey),
                         errorStyle: TextStyle(height: 0, color: tDarkGrey),
-                        enabledBorder: myinputborder(),
-                        focusedBorder: myfocusborder(),
+                        enabledBorder: myInputBorder(),
+                        focusedBorder: myFocusBorder(),
                       ),
                     ),
                     SizedBox(
@@ -183,8 +183,8 @@ class _StartNewInspectionState extends State<StartNewInspection> {
                         labelStyle: TextStyle(color: tDarkGrey),
                         errorStyle: TextStyle(height: 0, color: tDarkGrey),
                         hintStyle: TextStyle(color: tDarkGrey),
-                        enabledBorder: myinputborder(),
-                        focusedBorder: myfocusborder(),
+                        enabledBorder: myInputBorder(),
+                        focusedBorder: myFocusBorder(),
                       ),
                     ),
                     SizedBox(
@@ -222,8 +222,8 @@ class _StartNewInspectionState extends State<StartNewInspection> {
                         labelStyle: TextStyle(color: tDarkGrey),
                         errorStyle: TextStyle(height: 0, color: tDarkGrey),
                         hintStyle: TextStyle(color: tDarkGrey),
-                        enabledBorder: myinputborder(),
-                        focusedBorder: myfocusborder(),
+                        enabledBorder: myInputBorder(),
+                        focusedBorder: myFocusBorder(),
                       ),
                     ),
                     SizedBox(
@@ -261,8 +261,8 @@ class _StartNewInspectionState extends State<StartNewInspection> {
                         errorStyle: TextStyle(height: 0, color: tDarkGrey),
                         labelStyle: TextStyle(color: tDarkGrey),
                         hintStyle: TextStyle(color: tDarkGrey),
-                        enabledBorder: myinputborder(),
-                        focusedBorder: myfocusborder(),
+                        enabledBorder: myInputBorder(),
+                        focusedBorder: myFocusBorder(),
                       ),
                     ),
                     SizedBox(
@@ -280,6 +280,8 @@ class _StartNewInspectionState extends State<StartNewInspection> {
                       onSaved: (value) {
                         _name = value!.trim();
                       },
+                      keyboardType: TextInputType.number,
+                      maxLength: 5,
                       decoration: InputDecoration(
                         fillColor: tGreenLight,
                         filled: true,
@@ -300,8 +302,8 @@ class _StartNewInspectionState extends State<StartNewInspection> {
                         errorStyle: TextStyle(height: 0, color: tDarkGrey),
                         labelStyle: TextStyle(color: tDarkGrey),
                         hintStyle: TextStyle(color: tDarkGrey),
-                        enabledBorder: myinputborder(),
-                        focusedBorder: myfocusborder(),
+                        enabledBorder: myInputBorder(),
+                        focusedBorder: myFocusBorder(),
                       ),
                     ),
                     SizedBox(
@@ -333,8 +335,8 @@ class _StartNewInspectionState extends State<StartNewInspection> {
                         errorStyle: TextStyle(height: 0, color: Colors.black),
                         labelStyle: TextStyle(color: tDarkGrey),
                         hintStyle: TextStyle(color: tDarkGrey),
-                        enabledBorder: myinputborder(),
-                        focusedBorder: myfocusborder(),
+                        enabledBorder: myInputBorder(),
+                        focusedBorder: myFocusBorder(),
                       ),
                       onTap: () async {
                         DateTime? pickedDate = await showDatePicker(
@@ -382,7 +384,7 @@ class _StartNewInspectionState extends State<StartNewInspection> {
                                     context,
                                     MaterialPageRoute(
                                         builder: (context) =>
-                                            InspectionElments()));
+                                            InspectionElements()));
                               }
                             },
                           )

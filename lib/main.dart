@@ -1,8 +1,16 @@
+
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:site_audit/theme.dart';
 import 'Screens/startscreen.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  // Lock the orientation to portrait
+  SystemChrome.setPreferredOrientations([
+    DeviceOrientation.portraitUp,
+    DeviceOrientation.portraitDown,
+  ]);
   runApp(const MyApp());
 }
 
@@ -20,4 +28,5 @@ class MyApp extends StatelessWidget {
       home: StartScreen(),
     );
   }
+
 }

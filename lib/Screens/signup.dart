@@ -92,8 +92,8 @@ class _SignupScreenState extends State<SignupScreen> {
                     prefixIconColor: tDarkGrey,
                     labelStyle: TextStyle(color: tDarkGrey),
                     hintStyle: TextStyle(color: tDarkGrey),
-                    enabledBorder: myinputborder(),
-                    focusedBorder: myfocusborder(),
+                    enabledBorder: myInputBorder(),
+                    focusedBorder: myFocusBorder(),
                   ),
                 ),
                 SizedBox(
@@ -130,8 +130,8 @@ class _SignupScreenState extends State<SignupScreen> {
                     prefixIconColor: tDarkGrey,
                     labelStyle: TextStyle(color: tDarkGrey),
                     hintStyle: TextStyle(color: tDarkGrey),
-                    enabledBorder: myinputborder(),
-                    focusedBorder: myfocusborder(),
+                    enabledBorder: myInputBorder(),
+                    focusedBorder: myFocusBorder(),
                   ),
                 ),
                 SizedBox(

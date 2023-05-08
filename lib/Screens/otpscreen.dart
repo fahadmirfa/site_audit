@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:site_audit/Screens/newpassword.dart';
 import '../constants/colors.dart';
 import '../constants/sizes.dart';
+import '../view_model/textfeild/inputdecor.dart';
 
 class OtpScreen extends StatefulWidget {
   const OtpScreen({Key? key}) : super(key: key);
@@ -24,28 +25,28 @@ class _OtpScreenState extends State<OtpScreen> {
               Container(
                 height: 30,
               ),
-              Center(
+              const Center(
                   child: Image(
                 image: AssetImage("assets/login_signup.png"),
               )),
-              SizedBox(
+              const SizedBox(
                 height: tDefaultSize,
               ),
               Text(
                 "Enter Code",
-                style: Theme.of(context).textTheme.headline4,
+                style: Theme.of(context).textTheme.headlineMedium,
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
               Text(
                 "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
                 style: Theme.of(context)
                     .textTheme
-                    .headline4
+                    .headlineMedium
                     ?.copyWith(color: tGreyColor, fontSize: 12),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 48,
               ),
               Form(
@@ -64,15 +65,12 @@ class _OtpScreenState extends State<OtpScreen> {
                         textAlign: TextAlign.center,
                         keyboardType: TextInputType.number,
                         inputFormatters: [LengthLimitingTextInputFormatter(1)],
-                        style: TextStyle(color: tDarkGrey, fontSize: 24),
+                        style: const TextStyle(color: tDarkGrey, fontSize: 24),
                         decoration: InputDecoration(
-                          filled: true,
-                          fillColor: tGreenLight,
-                          border: OutlineInputBorder(
-                              borderSide: BorderSide(
-                            style: BorderStyle.solid,
-                          )),
-                        ),
+                            filled: true,
+                            fillColor: tGreenLight,
+                            focusedBorder: myFocusOtpBorder(),
+                            enabledBorder: myNonFocusOtpBorder()),
                       ),
                     ),
                     SizedBox(
@@ -82,20 +80,19 @@ class _OtpScreenState extends State<OtpScreen> {
                         onChanged: (value) {
                           if (value.length == 1) {
                             FocusScope.of(context).nextFocus();
+                          } else if (value.isEmpty) {
+                            FocusScope.of(context).previousFocus();
                           }
                         },
                         textAlign: TextAlign.center,
                         keyboardType: TextInputType.number,
                         inputFormatters: [LengthLimitingTextInputFormatter(1)],
-                        style: TextStyle(color: tDarkGrey, fontSize: 24),
+                        style: const TextStyle(color: tDarkGrey, fontSize: 24),
                         decoration: InputDecoration(
-                          filled: true,
-                          fillColor: tGreenLight,
-                          border: OutlineInputBorder(
-                              borderSide: BorderSide(
-                            style: BorderStyle.solid,
-                          )),
-                        ),
+                            filled: true,
+                            fillColor: tGreenLight,
+                            focusedBorder: myFocusOtpBorder(),
+                            enabledBorder: myNonFocusOtpBorder()),
                       ),
                     ),
                     SizedBox(
@@ -105,20 +102,19 @@ class _OtpScreenState extends State<OtpScreen> {
                         onChanged: (value) {
                           if (value.length == 1) {
                             FocusScope.of(context).nextFocus();
+                          } else if (value.isEmpty) {
+                            FocusScope.of(context).previousFocus();
                           }
                         },
                         textAlign: TextAlign.center,
                         keyboardType: TextInputType.number,
                         inputFormatters: [LengthLimitingTextInputFormatter(1)],
-                        style: TextStyle(color: tDarkGrey, fontSize: 24),
+                        style: const TextStyle(color: tDarkGrey, fontSize: 24),
                         decoration: InputDecoration(
-                          filled: true,
-                          fillColor: tGreenLight,
-                          border: OutlineInputBorder(
-                              borderSide: BorderSide(
-                            style: BorderStyle.solid,
-                          )),
-                        ),
+                            filled: true,
+                            fillColor: tGreenLight,
+                            focusedBorder: myFocusOtpBorder(),
+                            enabledBorder: myNonFocusOtpBorder()),
                       ),
                     ),
                     SizedBox(
@@ -126,28 +122,27 @@ class _OtpScreenState extends State<OtpScreen> {
                       width: 56,
                       child: TextFormField(
                         onChanged: (value) {
-                          if (value.length == 1) {
-                            FocusScope.of(context).nextFocus();
+                          if (value.isEmpty) {
+                            FocusScope.of(context).previousFocus();
+                            FocusScope.of(context).unfocus();
                           }
                         },
                         textAlign: TextAlign.center,
                         keyboardType: TextInputType.number,
                         inputFormatters: [LengthLimitingTextInputFormatter(1)],
-                        style: TextStyle(color: tDarkGrey, fontSize: 24),
+                        style: const TextStyle(color: tDarkGrey, fontSize: 24),
                         decoration: InputDecoration(
                           filled: true,
                           fillColor: tGreenLight,
-                          border: OutlineInputBorder(
-                              borderSide: BorderSide(
-                            style: BorderStyle.solid,
-                          )),
+                          focusedBorder: myFocusOtpBorder(),
+                          enabledBorder: myNonFocusOtpBorder(),
                         ),
                       ),
                     ),
                   ],
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 264,
               ),
               SizedBox(
@@ -156,15 +151,15 @@ class _OtpScreenState extends State<OtpScreen> {
                 child: ElevatedButton(
                   onPressed: () {
                     Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => NewPassword()));
+                        MaterialPageRoute(builder: (context) => const NewPassword()));
                   },
                   child: Text(
                     "Reset Password",
-                    style: Theme.of(context).textTheme.headline6,
+                    style: Theme.of(context).textTheme.titleLarge,
                   ),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               GestureDetector(
@@ -173,23 +168,23 @@ class _OtpScreenState extends State<OtpScreen> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
-                      "Did not recieve OTP ? ",
+                      "Did not receive OTP ? ",
                       style: Theme.of(context)
                           .textTheme
-                          .bodyText1
+                          .bodyLarge
                           ?.copyWith(fontSize: 12, color: tDarkGrey),
                     ),
                     Text(
                       " Resend OTP",
                       style: Theme.of(context)
                           .textTheme
-                          .bodyText1
+                          .bodyLarge
                           ?.copyWith(fontSize: 12),
                     ),
                   ],
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
             ],

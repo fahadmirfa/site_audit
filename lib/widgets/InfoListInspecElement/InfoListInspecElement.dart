@@ -8,12 +8,16 @@ class InfoListInspecElement extends StatefulWidget {
   final VoidCallback? infoInspecElementNoOnPressed;
 
   final String infoInspecElementText;
-  const InfoListInspecElement({
+
+  InfoListInspecElement({
     super.key,
     this.infoInspecElementYesOnPressed,
     required this.infoInspecElementText,
     this.infoInspecElementNoOnPressed,
   });
+
+  bool yesSwiped = false;
+  bool noSwiped = false;
 
   @override
   State<InfoListInspecElement> createState() => _InfoListInspecElementState();
@@ -35,7 +39,6 @@ class _InfoListInspecElementState extends State<InfoListInspecElement> {
               widget.infoInspecElementText,
               style: Theme.of(context).textTheme.headline4,
             ),
-
           ),
           //c1
           // Container(
@@ -66,56 +69,176 @@ class _InfoListInspecElementState extends State<InfoListInspecElement> {
           //   ),
           // ),
           //c1.
-          SwipeButton.expand(
-            borderRadius: BorderRadius.circular(10),
-            activeTrackColor: tInspecItemListYesLight,
-             activeThumbColor: tInspecItemListYesLight2,
 
-            height: 56,
-            child: Text(
-              "Yes",
-              style: Theme.of(context).textTheme.headline4?.copyWith(
-                  color: tDarkGrey, fontWeight: FontWeight.w400),
-            ),
-            onSwipe: () {
-              ScaffoldMessenger.of(context).showSnackBar(
-                SnackBar(
-                  content: Center(
-                    child: Text("Yes",style: Theme.of(context).textTheme.headline4?.copyWith(
-                        color:  tWhiteColor, fontWeight: FontWeight.w400
-                    ),),
+          // GestureDetector(
+          //     // onPanUpdate: (details) {
+          //     // Swiping in right direction.
+          //     onHorizontalDragUpdate: (details) {
+          //       // Note: Sensitivity is integer used when you don't want to mess up vertical drag
+          //       int sensitivity = 8;
+          //       if (details.delta.dx > sensitivity) {
+          //         setState(() {
+          //           widget.yesSwiped = true;
+          //         });
+          //       }
+          //
+          //       // Swiping in left direction.
+          //       if (details.delta.dx < -sensitivity) {
+          //         // setState(() {
+          //         //   widget.noSwiped = true;
+          //         // });
+          //       }
+          //     },
+          //     // },
+          //     child:
+          AnimatedSwitcher(
+            duration: const Duration(milliseconds: 500),
+            child: !widget.yesSwiped
+                ? SwipeButton.expand(
+                    borderRadius: BorderRadius.circular(10),
+                    activeTrackColor: tInspecItemListYesLight,
+                    activeThumbColor: Colors.green,
+                    height: 56,
+                    child: Text(
+                      "Yes",
+                      style: Theme.of(context).textTheme.headline4?.copyWith(
+                          color: tDarkGrey, fontWeight: FontWeight.w400),
+                    ),
+                    onSwipe: () {
+                      setState(() {
+                        widget.yesSwiped = true;
+                        widget.noSwiped = false;
+                      });
+                      // ScaffoldMessenger.of(context).showSnackBar(
+                      //   SnackBar(
+                      //     content: Center(
+                      //       child: Text("Yes",style: Theme.of(context).textTheme.headline4?.copyWith(
+                      //           color:  tWhiteColor, fontWeight: FontWeight.w400
+                      //       ),),
+                      //     ),
+                      //     backgroundColor: tInspecItemListYesLight2,
+                      //   ),
+                      // );
+                    },
+                  )
+                : GestureDetector(
+                    onTap: () => {
+                      // widget.infoInspecElementNoOnPressed;
+                      setState(() {
+                        widget.yesSwiped = false;
+                      })
+                    },
+                    child: Container(
+                      height: 56,
+                      color: Colors.green,
+                      child: Padding(
+                        padding: const EdgeInsets.only(
+                            top: 8.0, bottom: 8.0, left: 24.0, right: 24.0),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text(
+                              "Yes",
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .headline4
+                                  ?.copyWith(
+                                      fontSize: 16,
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.w400),
+                            )
+                          ],
+                        ),
+                      ),
+                    ),
                   ),
-                  backgroundColor: tInspecItemListYesLight2,
-                ),
-              );
-            },
           ),
           SizedBox(
             height: 8,
           ),
-          SwipeButton.expand(
-            borderRadius: BorderRadius.circular(10),
-            activeTrackColor: tInspecItDemListNoLight,
-            activeThumbColor: tInspecItDemListNoLight2,
-
-            height: 56,
-            child: Text(
-              "NO",
-              style: Theme.of(context).textTheme.headline4?.copyWith(
-                  color: tDarkGrey, fontWeight: FontWeight.w400),
-            ),
-            onSwipe: () {
-              ScaffoldMessenger.of(context).showSnackBar(
-                SnackBar(
-                  content: Center(
-                    child: Text("No",style: Theme.of(context).textTheme.headline4?.copyWith(
-                      color:  tWhiteColor, fontWeight: FontWeight.w400
-                    ),),
+          // GestureDetector(
+          //     // onPanUpdate: (details) {
+          //     // Swiping in right direction.
+          //     onHorizontalDragUpdate: (details) {
+          //       // Note: Sensitivity is integer used when you don't want to mess up vertical drag
+          //       int sensitivity = 8;
+          //       if (details.delta.dx > sensitivity) {
+          //         setState(() {
+          //           // widget.yesSwiped = true;
+          //         });
+          //       }
+          //
+          //       // Swiping in left direction.
+          //       if (details.delta.dx < -sensitivity) {
+          //         setState(() {
+          //           widget.noSwiped = true;
+          //         });
+          //       }
+          //     },
+          //     // },
+          //     child:
+          AnimatedSwitcher(
+            duration: const Duration(milliseconds: 500),
+            child: !widget.noSwiped
+                ? SwipeButton.expand(
+                    borderRadius: BorderRadius.circular(10),
+                    activeTrackColor: tInspecItDemListNoLight,
+                    activeThumbColor: Colors.red,
+                    height: 56,
+                    child: Text(
+                      "NO",
+                      style: Theme.of(context).textTheme.headline4?.copyWith(
+                          color: tDarkGrey, fontWeight: FontWeight.w400),
+                    ),
+                    onSwipe: () {
+                      setState(() {
+                        widget.noSwiped = true;
+                        widget.yesSwiped = false;
+                      });
+                      //   ScaffoldMessenger.of(context).showSnackBar(
+                      //     SnackBar(
+                      //       content: Center(
+                      //         child: Text(
+                      //           "No",
+                      //           style: Theme.of(context).textTheme.headline4?.copyWith(
+                      //               color: tWhiteColor, fontWeight: FontWeight.w400),
+                      //         ),
+                      //       ),
+                      //       backgroundColor: tInspecItDemListNoLight2,
+                      //     ),
+                      //   );
+                    },
+                  )
+                : GestureDetector(
+                    onTap: () => {
+                      // widget.infoInspecElementNoOnPressed;
+                      setState(() {
+                        widget.noSwiped = false;
+                      })
+                    },
+                    child: Container(
+                      height: 56,
+                      color: Colors.red,
+                      child: Padding(
+                        padding: const EdgeInsets.only(
+                            top: 8.0, bottom: 8.0, left: 24.0, right: 24.0),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text(
+                              "No",
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .headline4
+                                  ?.copyWith(
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.w400),
+                            )
+                          ],
+                        ),
+                      ),
+                    ),
                   ),
-                  backgroundColor: tInspecItDemListNoLight2,
-                ),
-              );
-            },
           ),
           Padding(
             padding: const EdgeInsets.only(top: 8.0, left: 16.0, right: 16.0),
@@ -157,4 +280,3 @@ class _InfoListInspecElementState extends State<InfoListInspecElement> {
     );
   }
 }
-

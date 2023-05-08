@@ -16,10 +16,7 @@ class ForgetPasssword extends StatefulWidget {
 class _ForgetPassswordState extends State<ForgetPasssword> {
   final formKey = GlobalKey<FormState>();
 
-  final RegExp emailRegex = RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$');
-  TextEditingController _emailController = TextEditingController();
-
-  String _name = '';
+  final RegExp emailRegex = RegExp(r'^[\w-]+@([\w-]+\.)+[\w-]{2,4}$');
 
   @override
   Widget build(BuildContext context) {
@@ -33,28 +30,28 @@ class _ForgetPassswordState extends State<ForgetPasssword> {
               Container(
                 height: 30,
               ),
-              Center(
+              const Center(
                   child: Image(
                 image: AssetImage("assets/login_signup.png"),
               )),
-              SizedBox(
+              const SizedBox(
                 height: tDefaultSize,
               ),
               Text(
                 "Enter Code",
-                style: Theme.of(context).textTheme.headline4,
+                style: Theme.of(context).textTheme.headlineMedium,
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
               Text(
                 "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
                 style: Theme.of(context)
                     .textTheme
-                    .headline4
+                    .headlineMedium
                     ?.copyWith(color: tGreyColor, fontSize: 12),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 48,
               ),
               Form(
@@ -66,18 +63,18 @@ class _ForgetPassswordState extends State<ForgetPasssword> {
                     } else if (!emailRegex.hasMatch(value)) {
                       return "Please enter a correct email";
                     }
+                    return null;
                   },
                   onSaved: (value) {
-                    _name = value!.trim();
                   },
                   decoration: InputDecoration(
                     fillColor: tGreenLight,
                     filled: true,
-                    focusedErrorBorder: UnderlineInputBorder(
+                    focusedErrorBorder: const UnderlineInputBorder(
                       borderSide: BorderSide(color: tDarkGrey),
                     ),
                     errorBorder:
-                        UnderlineInputBorder(borderSide: BorderSide.none),
+                        const UnderlineInputBorder(borderSide: BorderSide.none),
                     hintText: "Enter Your Email",
                     labelText: "Email",
                     prefixIcon: SvgPicture.asset(
@@ -86,16 +83,16 @@ class _ForgetPassswordState extends State<ForgetPasssword> {
                       width: 10,
                       fit: BoxFit.scaleDown,
                     ),
-                    errorStyle: TextStyle(height: 0, color: tDarkGrey),
+                    errorStyle: const TextStyle(height: 0, color: tDarkGrey),
                     prefixIconColor: tDarkGrey,
-                    labelStyle: TextStyle(color: tDarkGrey),
-                    hintStyle: TextStyle(color: tDarkGrey),
-                    enabledBorder: myinputborder(),
-                    focusedBorder: myfocusborder(),
+                    labelStyle: const TextStyle(color: tDarkGrey),
+                    hintStyle: const TextStyle(color: tDarkGrey),
+                    enabledBorder: myInputBorder(),
+                    focusedBorder: myFocusBorder(),
                   ),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 264,
               ),
               SizedBox(
@@ -105,38 +102,38 @@ class _ForgetPassswordState extends State<ForgetPasssword> {
                   onPressed: () {
                     if (formKey.currentState!.validate()) {
                       Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => OtpScreen()));
+                          MaterialPageRoute(builder: (context) => const OtpScreen()));
                     }
                   },
                   child: Text(
                     "Send Code",
-                    style: Theme.of(context).textTheme.headline6,
+                    style: Theme.of(context).textTheme.titleLarge,
                   ),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
               GestureDetector(
                 onTap: () {
                   Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => LoginScreen()));
+                      MaterialPageRoute(builder: (context) => const LoginScreen()));
                 },
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
-                      "Alredy have an account?",
+                      "Already have an account?",
                       style: Theme.of(context)
                           .textTheme
-                          .bodyText1
+                          .bodyLarge
                           ?.copyWith(fontSize: 12, color: tDarkGrey),
                     ),
                     Text(
                       " Sign In",
                       style: Theme.of(context)
                           .textTheme
-                          .bodyText1
+                          .bodyLarge
                           ?.copyWith(fontSize: 12),
                     ),
                   ],

@@ -5,6 +5,7 @@ import 'package:site_audit/Screens/start_new_inspection.dart';
 import 'package:site_audit/constants/colors.dart';
 import '../constants/sizes.dart';
 import '../widgets/iconbutton.dart';
+import 'inspection_home_progress.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -22,7 +23,7 @@ class _HomeState extends State<Home> {
           backgroundColor: tDarkGrey,
           title: Text(
             "Home",
-            style: Theme.of(context).textTheme.headline1,
+            style: Theme.of(context).textTheme.displayLarge,
           ),
           leading: IconButtons(
             icon: Icons.arrow_back,
@@ -49,9 +50,9 @@ class _HomeState extends State<Home> {
               children: [
                 Text(
                   "Welcome User",
-                  style: Theme.of(context).textTheme.headline4,
+                  style: Theme.of(context).textTheme.headlineMedium,
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 16,
                 ),
                 Container(
@@ -85,13 +86,12 @@ class _HomeState extends State<Home> {
                                       "Home\nInspection\nMade Easy",
                                       style: Theme.of(context)
                                           .textTheme
-                                          .headline4
+                                          .headlineMedium
                                           ?.copyWith(
                                               fontWeight: FontWeight.w700),
                                     ),
                                     GestureDetector(
                                       onTap: () {
-                                        print("object");
                                       },
                                       child: Row(
                                         mainAxisAlignment:
@@ -101,12 +101,12 @@ class _HomeState extends State<Home> {
                                             "Watch Tutorial",
                                             style: Theme.of(context)
                                                 .textTheme
-                                                .bodyText1,
+                                                .bodyLarge,
                                           ),
-                                          SizedBox(
+                                          const SizedBox(
                                             width: 5,
                                           ),
-                                          Icon(
+                                          const Icon(
                                             Icons.play_arrow,
                                             size: 15.0,
                                             color: tWatchTutorial,
@@ -116,12 +116,12 @@ class _HomeState extends State<Home> {
                                     ),
                                   ],
                                 ),
-                                Image(image: AssetImage("assets/home1.png"))
+                                const Image(image: AssetImage("assets/home1.png"))
                               ],
                             ),
                           ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 16,
                         ),
                         SizedBox(
@@ -133,209 +133,131 @@ class _HomeState extends State<Home> {
                                       context,
                                       MaterialPageRoute(
                                           builder: (context) =>
-                                              StartNewInspection()));
+                                              const StartNewInspection()));
                                 },
                                 child: Text(
                                   "Start New Inspection",
-                                  style: Theme.of(context).textTheme.headline6,
+                                  style: Theme.of(context).textTheme.titleLarge,
                                 )))
                       ],
                     ),
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 24,
                 ),
-                Divider(
+                const Divider(
                   thickness: 0.2,
                   color: Colors.black,
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 24,
                 ),
                 Text(
                   "Existing Inspections",
-                  style: Theme.of(context).textTheme.headline4,
+                  style: Theme.of(context).textTheme.headlineMedium,
                 ),
-                SizedBox(
+                const SizedBox(
                   height: tDefaultSize,
                 ),
                 Container(
-                  padding: EdgeInsets.only(top: 16, right: 8, left: 8),
-                  height: 212,
-                  width: MediaQuery.of(context).size.width,
                   decoration: BoxDecoration(
-                    color: tLight,
-                    borderRadius: BorderRadius.circular(8.0),
-                  ),
-                  child: Column(
-                    children: [
-                      Container(
-                          height: 60,
-                          width: MediaQuery.of(context).size.width,
-                          decoration: BoxDecoration(
-                            color: tWhiteColor,
-                          ),
-                          child: Padding(
-                            padding: const EdgeInsets.only(
-                                top: 13.0, left: 18.0, right: 18.0),
-                            child: SingleChildScrollView(
-                              child: Column(
-                                children: [
-                                  Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: [
+                      borderRadius: BorderRadius.circular(10), color: tLight),
+                  width: MediaQuery.of(context).size.width * 0.9,
+                  child: Padding(
+                    padding: const EdgeInsets.only(left: 8, right: 8, bottom: 20),
+                    child: Column(
+                      children: [
+                        SizedBox(
+                          width: double.infinity,
+                          child: ListView.builder(
+                            physics: const NeverScrollableScrollPhysics(),
+                            shrinkWrap: true,
+                            itemCount: 2,
+                            itemBuilder: (context, index) {
+                              return GestureDetector(
+                                onTap: (){
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) => const InspectionHomeProgress()));
+                                },
+                                child: Container(
+                                  width: double.infinity,
+                                  margin: const EdgeInsets.fromLTRB(0, 15, 0, 5),
+                                  decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(10),
+                                      color: tWhiteColor),
+                                  child: Padding(
+                                    padding: const EdgeInsets.fromLTRB(10, 10, 5, 10),
+                                    child: Row(children: [
+                                      Padding(
+                                        padding: const EdgeInsets.fromLTRB(5, 5, 5, 5),
+                                        child: SvgPicture.asset(
+                                          "assets/searchstatus.svg",
+                                          height: 25,
+                                          width: 25,
+                                          fit: BoxFit.scaleDown,
+                                        ),),
                                       Column(
-                                        children: [
-                                          SvgPicture.asset(
-                                            "assets/searchstatus.svg",
-                                            height: 25,
-                                            width: 25,
-                                            fit: BoxFit.scaleDown,
-                                          ),
-                                        ],
-                                      ),
-                                      SizedBox(
-                                        width: 18,
-                                      ),
-                                      Column(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          Text(
-                                            "Project Name",
-                                            style: Theme.of(context)
-                                                .textTheme
-                                                .bodyText2,
-                                          ),
-                                          Text(
-                                            "Home Inspection in Lahore",
-                                            style: Theme.of(context)
-                                                .textTheme
-                                                .headline3,
-                                          ),
-                                        ],
-                                      ),
-                                      SizedBox(
-                                        width: 55,
-                                      ),
-                                      GestureDetector(
-                                        onTap: () {
-                                          Navigator.push(
-                                              context,
-                                              MaterialPageRoute(
-                                                  builder: (context) =>
-                                                      StartNewInspection()));
-                                        },
+                                          crossAxisAlignment: CrossAxisAlignment.start,
+                                          children: [
+                                            Padding(
+                                              padding: const EdgeInsets.fromLTRB(5, 0, 0, 0),
+                                              child: Text("Project Name",
+                                                  style: Theme.of(context)
+                                                      .textTheme
+                                                      .bodyMedium),
+                                            ),
+                                            Padding(
+                                              padding: const EdgeInsets.fromLTRB(5, 0, 0, 0),
+                                              child: SizedBox(
+                                                width: MediaQuery.of(context).size.width*0.59,
+                                                child: Text("Home Inspection In Ghouri Town",
+                                                    style: Theme.of(context)
+                                                        .textTheme.displaySmall),
+                                              ),
+                                            ),
+                                          ]),
+                                      const Spacer(),
+                                      Padding(
+                                        padding: const EdgeInsets.all(8),
                                         child: SvgPicture.asset(
                                           "assets/arrowforward.svg",
-                                          height: 12,
-                                          width: 12,
+                                          height: 22,
+                                          width: 22,
                                           fit: BoxFit.scaleDown,
                                         ),
-                                      ),
-                                    ],
+                                      )
+                                    ]),
                                   ),
-                                ],
-                              ),
-                            ),
-                          )),
-                      SizedBox(
-                        height: tDefaultSize - 23,
-                      ),
-                      Container(
-                          height: 60,
-                          width: MediaQuery.of(context).size.width,
-                          decoration: BoxDecoration(
-                            color: tWhiteColor,
+                                ),
+                              );
+                            },
                           ),
-                          child: Padding(
-                            padding: const EdgeInsets.only(
-                                top: 13.0, left: 18.0, right: 18.0),
-                            child: SingleChildScrollView(
-                              child: Column(
-                                children: [
-                                  Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Column(
-                                        children: [
-                                          SvgPicture.asset(
-                                            "assets/searchstatus.svg",
-                                            height: 25,
-                                            width: 25,
-                                            fit: BoxFit.scaleDown,
-                                          ),
-                                        ],
-                                      ),
-                                      SizedBox(
-                                        width: 18,
-                                      ),
-                                      Column(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          Text(
-                                            "Project Name",
-                                            style: Theme.of(context)
-                                                .textTheme
-                                                .bodyText2,
-                                          ),
-                                          Text(
-                                            "Home Inspection in Lahore",
-                                            style: Theme.of(context)
-                                                .textTheme
-                                                .headline3,
-                                          ),
-                                        ],
-                                      ),
-                                      SizedBox(
-                                        width: 55,
-                                      ),
-                                      GestureDetector(
-                                        onTap: () {
-                                          Navigator.push(
-                                              context,
-                                              MaterialPageRoute(
-                                                  builder: (context) =>
-                                                      StartNewInspection()));
-                                        },
-                                        child: SvgPicture.asset(
-                                          "assets/arrowforward.svg",
-                                          height: 12,
-                                          width: 12,
-                                          fit: BoxFit.scaleDown,
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ],
-                              ),
-                            ),
-                          )),
-                      SizedBox(
-                        height: tDefaultSize - 15,
-                      ),
-                      SizedBox(
-                          height: 44,
-                          width: MediaQuery.of(context).size.width,
-                          child: ElevatedButton(
-                              onPressed: () {
-                                Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) => Inspections()));
-                              },
-                              child: Text(
-                                "View All Inspections",
-                                style: Theme.of(context).textTheme.headline6,
-                              )))
-                    ],
+                        ),
+                        const SizedBox(
+                          height: tDefaultSize - 15,
+                        ),
+                        SizedBox(
+                            height: 44,
+                            width: MediaQuery.of(context).size.width,
+                            child: ElevatedButton(
+                                onPressed: () {
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) => const Inspections()));
+                                },
+                                child: Text(
+                                  "View All Inspections",
+                                  style: Theme.of(context).textTheme.titleLarge,
+                                )))
+                      ],
+                    ),
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 40,
                 ),
               ],

@@ -4,7 +4,7 @@ import 'package:site_audit/constants/colors.dart';
 
 class TTextTheme {
   static TextTheme lightTextTheme = TextTheme(
-    headline1: GoogleFonts.roboto(
+    headline1: GoogleFonts.poppins(
         fontSize: 22, fontWeight: FontWeight.w400, color: tWhiteColor),
     headline2: GoogleFonts.poppins(
         fontSize: 20, fontWeight: FontWeight.w700, color: tDarkGrey),

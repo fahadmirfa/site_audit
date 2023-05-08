@@ -4,9 +4,14 @@ import '../constants/colors.dart';
 import '../widgets/iconbutton.dart';
 import 'login.dart';
 
-class Profile extends StatelessWidget {
+class Profile extends StatefulWidget {
   const Profile({Key? key}) : super(key: key);
 
+  @override
+  State<Profile> createState() => _ProfileState();
+}
+
+class _ProfileState extends State<Profile> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -14,7 +19,7 @@ class Profile extends StatelessWidget {
         backgroundColor: tDarkGrey,
         title: Text(
           "Profile",
-          style: Theme.of(context).textTheme.headline1,
+          style: Theme.of(context).textTheme.displayLarge,
         ),
         leading: IconButtons(
           icon: Icons.arrow_back,
@@ -34,35 +39,36 @@ class Profile extends StatelessWidget {
         ],
       ),
       body: Padding(
-        padding: EdgeInsets.only(top: 24.0, left: 18.0, right: 18.0),
+        padding: const EdgeInsets.only(top: 24.0, left: 18.0, right: 18.0),
         child: Column(
           children: [
             Center(
               child: CircleAvatar(
+                backgroundColor: const Color(0xffF2F4F7),
+                radius: 40,
                 child: Image(
-                  image: AssetImage("assets/user.png"),
+                  image: const AssetImage("assets/user.png"),
                   height: 30,
                   width: 30,
+                  color: profileIcon,
                 ),
-                backgroundColor: Color(0xfff2f4f7),
-                radius: 40,
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 8.0,
             ),
             Text(
               "John Doe",
               style: Theme.of(context)
                   .textTheme
-                  .headline4
-                  ?.copyWith(fontWeight: FontWeight.w500),
+                  .bodyMedium
+                  ?.copyWith(fontSize: 15, fontWeight: FontWeight.w700, color: profileIconText),
             ),
-            SizedBox(
+            const SizedBox(
               height: 5.0,
             ),
             Text("johndoe@gmail.com",
-                style: Theme.of(context).textTheme.bodyText2),
+                style: Theme.of(context).textTheme.bodyMedium),
             Container(
               height: 30,
             ),
@@ -72,23 +78,24 @@ class Profile extends StatelessWidget {
                   "assets/share.svg",
                   height: 25,
                   width: 25,
+                  colorFilter: ColorFilter.mode(profileTilesIcon, BlendMode.modulate),
                 ),
-                SizedBox(
-                  width: 18,
+                const SizedBox(
+                  width: 10,
                 ),
                 TextButton(
                   onPressed: () {},
                   child: Text(
                     "Share App",
-                    style: Theme.of(context)
-                        .textTheme
-                        .headline4
-                        ?.copyWith(fontWeight: FontWeight.w500, fontSize: 12),
+                    style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                        fontWeight: FontWeight.w700,
+                        fontSize: 12,
+                        color: profileTilesText),
                   ),
                 ),
               ],
             ),
-            SizedBox(
+            const SizedBox(
               height: 15,
             ),
             Row(
@@ -97,23 +104,24 @@ class Profile extends StatelessWidget {
                   "assets/securitysafe.svg",
                   height: 25,
                   width: 25,
+                  colorFilter: ColorFilter.mode(profileTilesIcon, BlendMode.modulate),
                 ),
-                SizedBox(
-                  width: 18,
+                const SizedBox(
+                  width: 10,
                 ),
                 TextButton(
                   onPressed: () {},
                   child: Text(
                     "Privacy Policy",
-                    style: Theme.of(context)
-                        .textTheme
-                        .headline4
-                        ?.copyWith(fontWeight: FontWeight.w500, fontSize: 12),
+                    style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                        fontWeight: FontWeight.w700,
+                        fontSize: 12,
+                        color: profileTilesText),
                   ),
                 ),
               ],
             ),
-            SizedBox(
+            const SizedBox(
               height: 15,
             ),
             Row(
@@ -122,45 +130,56 @@ class Profile extends StatelessWidget {
                   "assets/document-text.svg",
                   height: 25,
                   width: 25,
+                  colorFilter: ColorFilter.mode(profileTilesIcon, BlendMode.modulate),
                 ),
-                SizedBox(
-                  width: 18,
+                const SizedBox(
+                  width: 10,
                 ),
                 TextButton(
                   onPressed: () {},
                   child: Text(
                     "Terms & Conditions",
-                    style: Theme.of(context)
-                        .textTheme
-                        .headline4
-                        ?.copyWith(fontWeight: FontWeight.w500, fontSize: 12),
+                    style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                        fontWeight: FontWeight.w700,
+                        fontSize: 12,
+                        color: profileTilesText),
                   ),
                 ),
               ],
             ),
-            SizedBox(
-              height: 100,
-            ),
-            OutlinedButton(
-                onPressed: () {
+            const Spacer(),
+            GestureDetector(
+                onTap: () {
                   Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => LoginScreen()));
+                      MaterialPageRoute(builder: (context) => const LoginScreen()));
                 },
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    SvgPicture.asset("assets/logout.svg"),
-                    SizedBox(
-                      width: 10,
-                    ),
-                    Text(
-                      "Logout",
-                      style: Theme.of(context).textTheme.headline4?.copyWith(
-                            fontWeight: FontWeight.w500,
-                          ),
-                    )
-                  ],
-                ))
+                child: Container(
+                  height: 44,
+                  width: double.infinity,
+                  decoration: BoxDecoration(
+                      border: Border.all(color: gray, width: 1.0),
+                      borderRadius: BorderRadius.circular(10)),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      SvgPicture.asset(
+                        "assets/logout.svg",
+                        colorFilter: ColorFilter.mode(logOutBlack, BlendMode.modulate),
+                      ),
+                      const SizedBox(
+                        width: 10,
+                      ),
+                      Text(
+                        "Logout",
+                        style: Theme.of(context).textTheme.headlineMedium?.copyWith(
+                            fontWeight: FontWeight.w500, color: logOutBlack),
+                      )
+                    ],
+                  ),
+                )),
+            const SizedBox(
+              height: 25,
+            )
           ],
         ),
       ),
